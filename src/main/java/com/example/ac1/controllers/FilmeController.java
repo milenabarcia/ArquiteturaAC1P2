@@ -20,13 +20,12 @@ public class FilmeController {
     @Autowired
     private DiretorRepository diretorRepository;
 
-    // GET /filmes → lista todos
+   
     @GetMapping
     public List<filmes> listar() {
         return filmeRepository.findAll();
     }
 
-    // POST /filmes → cria um novo filme associado a um diretor existente
     @PostMapping
     public filmes criar(@RequestBody FilmeRequest request) {
         diretor dir = diretorRepository.findById(request.getDiretorId())
@@ -35,7 +34,6 @@ public class FilmeController {
         return filmeRepository.save(f);
     }
 
-    // DTO interno para receber dados no JSON
     public static class FilmeRequest {
         private String titulo;
         private Integer duracao;
