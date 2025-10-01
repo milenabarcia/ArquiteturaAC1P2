@@ -15,13 +15,12 @@ public class DiretorController {
     @Autowired
     private DiretorRepository diretorRepository;
 
-    // GET /diretores → lista todos
     @GetMapping
     public List<diretor> listar() {
         return diretorRepository.findAll();
     }
 
-    // POST /diretores → cria um novo
+
     @PostMapping
     public diretor criar(@RequestBody diretor d) {
         return diretorRepository.save(d);
